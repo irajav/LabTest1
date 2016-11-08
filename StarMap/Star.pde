@@ -11,6 +11,23 @@ class Star
   float zg;
   float AbsMag;
   
+  Star(int hab, String name, float distance, float xg, float yg, float zg, float size)
+  {
+    this.Hab = hab;
+    this.DisplayName = name;
+    this.Distance = distance;
+    this.xg = xg;
+    this.yg = yg;
+    this.zg = zg;
+    this.AbsMag = size;
+  }
+  
+  String toString()
+  {
+    return Hab + "\t" + DisplayName + "\t" + Distance + "\t"
+    + xg + "\t" + yg + "\t" + zg + "\t" + AbsMag;
+  }
+  
   Star(String line)
   {
     String[] fields = line.split(",");
