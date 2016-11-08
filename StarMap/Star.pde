@@ -3,7 +3,7 @@
 
 class Star
 {
-  float Hab;
+  int Hab;
   String DisplayName;
   float Distance;
   float xg;
@@ -14,25 +14,25 @@ class Star
   Star(String line)
   {
     String[] fields = line.split(",");
-    Hab = Float.parseFloat(fields[3]);
-    DisplayName = fields[4];
-    Distance = Float.parseFloat(fields[13]);
-    xg = float.parseFloat(fields[14]);
-    yg = float.parseFloat(fields[15]);
-    zg = float.parseFloat(fields[16]);
-    AbsMag = float.parseFloat(fields[17]);
+    Hab = Integer.parseInt(fields[2]);                 //habitability flag 1
+    DisplayName = fields[3];                           //name of the star 
+    Distance = Float.parseFloat(fields[12]);           //distance from the sun in parsecs
+    xg = Float.parseFloat(fields[13]);                 //co-ordinates
+    yg = Float.parseFloat(fields[14]);                 //co-ordinates
+    zg = Float.parseFloat(fields[15]);                 //co-ordinates
+    AbsMag = Float.parseFloat(fields[16]);             //star's size
     
   }//end of String
   
-  Star(TableRow row)
+  Star(TableRow row) //constructor
   {
-    Hab = row.getFloat(3);
-    DisplayName = row.getString(4);
-    Distance = row.getFloat(13);
-    xg = row.getFloat(14);
-    yg = row.getFloat(15);
-    zg = row.getFloat(16);
-    AbsMag = row.getFloat(17);
+    Hab = row.getInt(2);
+    DisplayName = row.getString(3);
+    Distance = row.getFloat(12);
+    xg = row.getFloat(13);
+    yg = row.getFloat(14);
+    zg = row.getFloat(15);
+    AbsMag = row.getFloat(16);
     
   }//end of TableRow
   
