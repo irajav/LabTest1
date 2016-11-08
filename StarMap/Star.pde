@@ -11,7 +11,26 @@ class Star
   float zg;
   float AbsMag;
   
-  Star(int hab, String name, float distance, float xg, float yg, float zg, float size)
+  Star(String line)
+  {
+    String[] fields = line.split(",");
+    Hab = Integer.parseInt(fields[2]);                 //habitability flag 1
+    DisplayName = fields[3];                           //name of the star 
+    Distance = Float.parseFloat(fields[12]);           //distance from the sun in parsecs
+    xg = Float.parseFloat(fields[13]);                 //co-ordinates
+    yg = Float.parseFloat(fields[14]);                 //co-ordinates
+    zg = Float.parseFloat(fields[15]);                 //co-ordinates
+    AbsMag = Float.parseFloat(fields[16]);             //star's size
+    
+  }//end of String
+  
+  Star()
+  {
+    DisplayName = "";
+  }
+  
+  
+    Star(int hab, String name, float distance, float xg, float yg, float zg, float size)
   {
     this.Hab = hab;
     this.DisplayName = name;
@@ -28,20 +47,7 @@ class Star
     + xg + "\t" + yg + "\t" + zg + "\t" + AbsMag;
   }
   
-  Star(String line)
-  {
-    String[] fields = line.split(",");
-    Hab = Integer.parseInt(fields[2]);                 //habitability flag 1
-    DisplayName = fields[3];                           //name of the star 
-    Distance = Float.parseFloat(fields[12]);           //distance from the sun in parsecs
-    xg = Float.parseFloat(fields[13]);                 //co-ordinates
-    yg = Float.parseFloat(fields[14]);                 //co-ordinates
-    zg = Float.parseFloat(fields[15]);                 //co-ordinates
-    AbsMag = Float.parseFloat(fields[16]);             //star's size
-    
-  }//end of String
-  
-  Star(TableRow row) //constructor
+    Star(TableRow row) //constructor
   {
     Hab = row.getInt(2);
     DisplayName = row.getString(3);
@@ -54,6 +60,6 @@ class Star
   }//end of TableRow
   
 }//end of Class Star
-  
+ 
   
     

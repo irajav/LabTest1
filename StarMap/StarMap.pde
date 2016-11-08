@@ -39,6 +39,18 @@ void loadData()
       Star star = new Star(row);
       data.add(star);
     }
+    
+    for(TableRow r : t.rows())
+    {
+      Star star = new Star(
+      r.getFloat("Hab"),
+      r.getString("DisplayName"),
+      r.getFloat("Distance"),
+      r.getFloat("xg"),
+      r.getFloat("yg"),
+      r.getFloat("zg"),
+      r.getFloat("AbsMag");
+      println(star);
 }
 
 void printStars()
@@ -51,12 +63,13 @@ void printStars()
 
 void drawGrid()
 {
-  stroke (188, 255, 255);
+  stroke(#D302F0);
+  
   for(int x = 0; x<border; x+= 5)
   {
     for(int y = 0; y<border; y+=5)
     {
-      fill(255,0,150);
+      fill(#D302F0);
       rect(x, y, 50, 50);
       rect(x+50, y+50, 50, 50);
     }
@@ -64,8 +77,14 @@ void drawGrid()
   
 }
 
+void plotStars()
+{
+  
+};
+
 void draw()
 {
   background(255);
   drawGrid();
+  plotStars();
 }
